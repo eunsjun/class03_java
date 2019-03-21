@@ -41,7 +41,5 @@ public class Test08 {
 		no2 %= 3; // 퀴즈 ] 오라클에서 나머지를 구하는 함수이름은??? mod()
 		System.out.println("no2 : " + no2);
 		
-		
-		
 	}
 }
