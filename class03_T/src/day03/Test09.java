@@ -83,6 +83,13 @@ public class Test09 {
 		System.out.println( "no2 : " + no2 );
 		System.out.println( (no1 == 10) | (++no2 > 10) );
 		System.out.println( "no2 : " + no2 );
+		
+		/*
+		 * 부호반전 연산자	: -
+		 * 		int a = -10; a=-10
+		 * 			a = -a; a = 10
+		 */
+		
 	}
 
 }
