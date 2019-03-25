@@ -1,7 +1,7 @@
 package day05;
 
 import java.util.*;
-public class Test04_02 {
+public class Test04_02_01 {
 /*
  * Bonus]
  * 		게시물을 출력하는데
@@ -33,28 +33,16 @@ public class Test04_02 {
 		
 		int num = Integer.parseInt(str);
 		int page = 0;
-		/*
-		 * ==> 이렇게 사용하면 안된다.
-		 * if(num == 0) { page = 1; }
-		 * 
-		 */		
 		
-		if(num % 15 == 0) {
-			page = num / 15;
-			
-			// 0인 경우는 적어도 1페이지는 필요하다.
-			if(num == 0) {
-				page = 1 ;
+		if(num == 0) {
+			page = 1;
+		} else {
+			if(num % 15 == 0) {
+				page = num / 15;
+			} else {
+				page = num / 15 + 1 ;
 			}
 		}
-		
-		if(num % 15 != 0) page = num / 15 + 1;
-		// 실행해야될 문장이 한문장이면 블럭마크는 생략될 수 있다.
-		
-		/*
-		 * 이 경우도 OK...
-		 * if(num == 0) { page = 1; }
-		 */
 		
 		System.out.println("입력된 게시글 수 " + num + " 는 " + page + " 페이지가 필요합니다.");
 	}
