@@ -22,7 +22,16 @@ public class Test07_01 {
 				ch = 'o';
 				break;
 			}
+			/*
+			if(ch == 'I') {
+				
+			} else if(ch == 'L') {
+				
+			} else if(ch == 'O') {
+				
+			} else {}
 			
+			*/
 			if(ch == 'Z') {
 				System.out.print(ch);
 			} else {
