@@ -9,6 +9,8 @@ public class Test02_01 {
 		
 		-- 희준씨, 형진씨, 병주씨는 5천원어치 발생하세요.....
 		
+		출력할 때 반복문은 향상된 for 명령으로 처리하세요...
+		
  */
 	public static void main(String[] args) {
 		
