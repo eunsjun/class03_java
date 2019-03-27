@@ -6,10 +6,12 @@ package day06;
  * 
  * 둘다 배열로 저장하세요.
  */
+
+import java.util.*;
 public class HW03 {
 
 	public static void main(String[] args) {
-
+		
 	}
 
 }
