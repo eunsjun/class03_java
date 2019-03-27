@@ -11,6 +11,8 @@ public class Test03 {
 						"김형준", "김환진", "박정헌", "박형진", "서병주",
 						"안다예", "양희준", "전영수", "조원용", "허준석" };
 		
+		String[][] team = new String[3][5];
+		
 		String[] il_jo = new String[5];
 		String[] ee_jo = new String[5];
 		String[] sam_jo = new String[5];
