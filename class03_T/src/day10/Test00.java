@@ -11,17 +11,20 @@ public class Test00 {
 	// 전역변수... - 클래스 블럭내의 어느곳에서든지 사용가능...
 	int r = 0;
 	public Test00() {
-		/*
-		 * Scanner sc = new Scanner(System.in);
-		 * ==> 지역변수 : 소속된 함수내에서 실행되고 함수실행이 종료되면 사라지는 변수
-		 */
+/*
+		
+//		 Scanner sc = new Scanner(System.in);
+//		 ==> 지역변수 : 소속된 함수내에서 실행되고 함수실행이 종료되면 사라지는 변수
+//		 
+		
+		// 1. 반지름을 입력받는다.
 		int rad = getRadius();
 		
-		// 원둘레 구하기...
+		// 2. 원둘레 구하기...
 		// 원둘레를 구하려면 반지름이 필요하다.
-		
-		// 둘레와 면적 받기
 		double arround = getArround(rad);
+		
+		// 3. 면적 구하기
 		double area = getArea(rad);
 		
 		// 둘레와 면적 한꺼번에 받기
@@ -31,7 +34,10 @@ public class Test00 {
 		
 		// 출력하기
 //		toPrint(rad);
-		toPrint1(rad);
+		toPrint2(rad, arround, area);
+		
+//		toPrint1(rad);
+*/
 	}
 	
 	// 원의 반지름을 입력받아 둘레를 계산해주는 함수
@@ -76,6 +82,10 @@ public class Test00 {
 		System.out.printf("반지름이  %2d 인 원의 둘레는 %.2f  이고 면적은 %.2f 입니다.", r, data[0], data[1]);
 	}
 	
+	public void toPrint2(int r, double a, double m) {
+		System.out.printf("반지름이  %2d 인 원의 둘레는 %.2f  이고 면적은 %.2f 입니다.", r, a, m);
+	}
+	
 	public void toPrint1(int r) {
 		String str = getString(r);
 		int idx = 0 ;
@@ -98,9 +108,9 @@ public class Test00 {
 		System.out.printf("반지름이  %2d 인 원의 둘레는 %s 이고 면적은 %s 입니다.", r, sArround, sArea);
 	}
 	
-	public static void main(String[] args) {
-		new Test00();
-	}
+//	public static void main(String[] args) {
+//		new Test00();
+//	}
 	
 	public int getRadius() {
 		int r = 0;
@@ -117,6 +127,7 @@ public class Test00 {
 					continue inchar;
 				}
 			}
+			sc.close();
 			
 			// 여기 문장이 실행되는 경우는 for 반복문에서 검사에 통과한 경우이다.
 			// 이제  입력받은 문자를 정수로 변환해주자.
