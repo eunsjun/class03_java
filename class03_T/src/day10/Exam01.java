@@ -10,8 +10,10 @@ package day10;
 import java.util.*;
 public class Exam01 {
 	// 입력받을 도구 준비
-	Scanner sc = new Scanner(System.in);
+	Scanner sc ;
+	
 	public Exam01() {
+		sc = new Scanner(System.in);
 		// 숫자 두개 입력 받기
 		System.out.print("첫번째 숫자를 입력하세요! : ");
 		int num1 = inputData();
@@ -34,6 +36,14 @@ public class Exam01 {
 		System.out.println("반지름이 " + won.c1 + " 인 원의 넓이는 " + won.area1 + " 입니다.");
 		System.out.println("반지름이 " + won.c2 + " 인 원의 넓이는 " + won.area2 + " 입니다.");
 		
+		
+		// 오버로딩 테스트...
+		float fArea = nemo.myunjuk(10.f, 3.14f);
+		System.out.println("네모 면적 함수 오버로딩 테스트 10.f x 3.14f : " + fArea);
+		
+		// 네모 면적구하는 함수 오버로딩 테스트 2..
+		String sArea = nemo.myunjuk("10", "2");
+		System.out.println("네모 면적 함수 오버로딩 테스트2 \"10\" x \"2\" : " + sArea);
 	}
 	
 	public int inputData() {

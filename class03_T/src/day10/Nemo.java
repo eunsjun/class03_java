@@ -18,9 +18,28 @@ public class Nemo {
 		sero = no2;
 	}
 	
+	// 생성자 함수 오버로딩..
+	public Nemo(float no1, float no2) {
+		garo = (int) no1;
+		sero = (int) no2;
+	}
+	
 	// 면적 구해주는 함수
 	public int myunjuk() {
 		return garo * sero;
+	}
+	
+	// 면적 구해주는 함수 2
+	public String myunjuk(String sno1, String sno2) {
+		String value = "";
+		int no1 = Integer.parseInt(sno1);
+		int no2 = Integer.parseInt(sno2);
+		value = (no1 * no2) + "";
+		return value;
+	}
+	
+	public float myunjuk(float no1, float no2) {
+		return no1 * no2;
 	}
 
 }
