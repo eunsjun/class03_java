@@ -23,6 +23,17 @@ public class HW02 {
 		
 	}
 	
+	public HW02(String sname) {
+		name = sname;
+		java = (int)(Math.random()*51 + 50);
+		oracle = (int)(Math.random()*51 + 50);
+		jsp = (int)(Math.random()*51 + 50);
+		spring = (int)(Math.random()*51 + 50);
+		
+		setTotal();
+		System.out.println(name + " | " + java + " | " + oracle + " | " + jsp + " | " + spring + " | " + total);
+	}
+	
 	public HW02(String sname, int sc1, int sc2, int sc3, int sc4) {
 		name = sname;
 		java = sc1;
