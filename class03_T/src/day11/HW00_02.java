@@ -24,7 +24,7 @@ public class HW00_02 {
 		
 		// 총점계산해서 대입하기...
 		setTotal();
-		toPrint();
+//		toPrint();
 	}
 	
 	// 총점 계산해주는 함수
@@ -37,7 +37,13 @@ public class HW00_02 {
 	}
 	
 	public static void main(String[] args) {
-		new HW00_02("전영수", 80, 70, 90, 100);
+		HW00_02 score = new HW00_02("전영수", 80, 70, 90, 100);
+		score.toPrint();
+		
+		HW00_02 score1 = new HW00_02("김태형", 100, 100, 90, 100);
+		score1.toPrint();
+		
+		
 	}
 
 }

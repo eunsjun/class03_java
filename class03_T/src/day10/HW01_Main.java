@@ -10,7 +10,7 @@ public class HW01_Main {
 			System.out.println("학생 번호 : " + score.class03[i][0]);
 		}
 		
-		int rad = (int)(Math.random()*101);
+		int rad = (int)(Math.random()*31 + 70);
 	}
 	
 	public HW01_Main(String str) {
