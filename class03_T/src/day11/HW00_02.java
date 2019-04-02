@@ -15,12 +15,19 @@ public class HW00_02 {
 	public HW00_02(String sname) {
 		name = sname;
 	}
-	public HW00_02(String sname, int no1, int no2, int no3, int no4) {
+
+	/*
+	 * public HW00_02(String sname, int no1, int no2, int no3, int no4) {
+	 * this(sname); java = no1; oracle = no2; jsp = no3; spring = no4;
+	 * 
+	 * // 총점계산해서 대입하기... setTotal(); // toPrint(); }
+	 */
+	public HW00_02(String sname, int ... no ) {
 		this(sname);
-		java = no1;
-		oracle = no2;
-		jsp = no3;
-		spring = no4;
+		java = no[0];
+		oracle = no[1];
+		jsp = no[2];
+		spring = no[3];
 		
 		// 총점계산해서 대입하기...
 		setTotal();
@@ -42,8 +49,6 @@ public class HW00_02 {
 		
 		HW00_02 score1 = new HW00_02("김태형", 100, 100, 90, 100);
 		score1.toPrint();
-		
-		
 	}
 
 }

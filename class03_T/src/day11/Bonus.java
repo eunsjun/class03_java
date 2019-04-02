@@ -42,5 +42,4 @@ public class Bonus {
 		System.out.println("=================================");
 		System.out.println(etc.toString());
 	}
-
 }
