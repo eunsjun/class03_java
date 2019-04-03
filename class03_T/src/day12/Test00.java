@@ -5,7 +5,7 @@ import day11.*;
 public class Test00 {
 
 	public Test00() {
-		HW01 test = new HW01();
+		day11.HW01 test = new day11.HW01();
 		test.no1 = 5;
 		test.no2 = 7;
 		

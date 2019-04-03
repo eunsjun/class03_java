@@ -9,7 +9,6 @@ package day11;
 
 // 사각형 클래스
 public class HW01 {
-	
 	public int no1, no2 ;
 	public float area;
 	

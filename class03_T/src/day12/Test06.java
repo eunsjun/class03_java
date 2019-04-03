@@ -14,10 +14,13 @@ public class Test06 {
 	public Test06() {
 		score = new Test05[15];
 		setName(); // 실행시켜줘야 이름이 입력이 된다.
-		int no = 0;
-		for(Test05 t : score) {
-			System.out.println( ++no + ". " + t.getName());
-		}
+		/*
+		 * int no = 0; for(Test05 t : score) { System.out.println( ++no + ". " +
+		 * t.getName()); }
+		 */
+		
+		setScore();
+		toPrint();
 	}
 	
 	// 인스턴스를 만들고 이름을 저장하는 함수
@@ -33,9 +36,44 @@ public class Test06 {
 	}
 	
 	// 각 학생별 과목 점수 입력하는 함수
-	
+	public void setScore() {
+		// 할일
+		// 1. 입력하려면 대상이 있어야 되니 하나씩 꺼내보자.
+		for(int i = 0 ; i < score.length ; i++ ) {
+			// 배열에 랜덤하게 6과목 점수를 저장해두자.
+			int tscore[] = new int[6];
+			for(int j = 0 ; j < 6 ; j++ ) {
+				tscore[j] = (int) (Math.random()*41 + 60);
+			}
+			
+			// 6과목 점수를 각 과목에 입력하자.
+			score[i].setJavaScore(tscore[0]);
+			score[i].setOracleScore(tscore[1]);
+			score[i].setJspScore(tscore[2]);
+			score[i].setSpringScore(tscore[3]);
+			score[i].setWebScore(tscore[4]);
+			score[i].setJsScore(tscore[5]);
+			
+			// 총점 구하기
+			score[i].setTotal();
+		}
+	}
 	
 	// 학생 모두의 정보를 출력해주는 함수
+	public void toPrint() {
+		System.out.printf("%6s | %6s | %6s | %6s | %6s | %6s | %6s | %6s |\r\n", "이  름", "java", "oracle", "j s p", "spring", "w e b", "j   s", "Total");
+		System.out.println("======================================================================");
+		for(Test05 t : score) {
+			System.out.printf("%4s | %6d | %6d | %6d | %6d | %6d | %6d | %6d |\r\n", 
+								t.getName(), t.getJavaScore(),
+								t.getOracleScore(), t.getJspScore(), 
+								t.getSpringScore(), t.getWebScore(), 
+								t.getJsScore(), t.getTotal());
+		}
+		System.out.println("======================================================================");
+	}
+	
+	// 총점이 높은 순으로 정렬하세요...
 	
 	public static void main(String[] args) {
 		new Test06();
