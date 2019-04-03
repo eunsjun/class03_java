@@ -32,6 +32,11 @@ public class Test06 {
 		}
 	}
 	
+	// 각 학생별 과목 점수 입력하는 함수
+	
+	
+	// 학생 모두의 정보를 출력해주는 함수
+	
 	public static void main(String[] args) {
 		new Test06();
 	}
