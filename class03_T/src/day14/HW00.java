@@ -17,18 +17,66 @@ package day14;
 				 	a. 배열길이도 랜덤하게...
 				 	b. 문자열길이도 랜덤하게...
  */
-public class HW00 {
 
+import static java.lang.Math.*;
+import java.util.*;
+public class HW00 {
+	String[] num;
+	
 	public HW00() {
-		String str = 'A' + "";
-		String str1 = '9' + "";
-		String str2 = "2" + '5';
+		/*
+		 * String str = 'A' + ""; String str1 = '9' + ""; String str2 = "2" + '5';
+		 * 
+		 * StringBuffer buff = new StringBuffer(); buff.append('3');
+		 * 
+		 * String s = buff.toString();
+		 */
+		int len = (int)(Math.random()*6 + 5);
+		num = new String[len];
+		
+		Scanner sc = new Scanner(System.in);
 		
 		StringBuffer buff = new StringBuffer();
-		buff.append('3');
-		
-		String s = buff.toString();
+		for(int i = 0 ; i < len ; i++ ) {
+			char ch = ' ';
+			for(int j = 0 ; j < 3 ; j++ ) {
+				ch = (char)(random()*10 + '0');
+				buff.append(ch);
+			}
+			try{
+				num[i] = buff.toString();
+			} catch(IndexOutOfBoundsException e) {
+				break;
+			}
+			buff.delete(0, buff.length()-1);
+		}
 	}
+	
+	// 숫자타입의 문자열배열 만드는 함수 
+	public void setSArray(Scanner s) throws IndexOutOfBoundsException {
+		for(int i = 0 ; i < num.length ; i++ ) {
+			System.out.println("세자리 숫자를 입력하세요!");
+			String sno = s.nextLine();
+			try{
+				if(sno.length() != 3) {
+					throw new NumberFormatException();
+				}
+			} catch(NumberFormatException e) {
+				--i;
+				continue;
+			}
+			for(int j = 0 ; j < sno.length() ; j++ ) {
+				
+			}
+			num[i] = sno;
+		}
+	}
+	
+	// 배열의 각 방의 데이터를 숫자로 변환하는 함수
+	
+	
+	// 숫자배열의 평균을 규하는 함수
+	
 
 	public static void main(String[] args) {
 
