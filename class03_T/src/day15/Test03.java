@@ -9,6 +9,11 @@ public class Test03 {
 		Samgak s2 = new Samgak(5, 10);
 		
 		System.out.println(s1.equals(s2));
+		System.out.println(s1);
+		System.out.println(s2);
+		
+		Sagak nemo1 = new Sagak();
+		System.out.println(nemo1);
 	}
 
 	public static void main(String[] args) {
