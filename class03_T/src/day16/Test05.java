@@ -69,6 +69,8 @@ public class Test05 {
 				
 			12. [^b|c]
 				==> ^ ´Â NOT ÀÇ ÀÇ¹Ì
+				
+				[^(b|c)]
 			
 			13. .*a.*
 				==> a°¡ Æ÷ÇÔµÇ¸é µÈ´Ù.
@@ -82,6 +84,11 @@ public class Test05 {
 				
 			16. .{2,3}
 				==> {} ÀÇ ¼ıÀÚ´Â ±ÛÀÚ ¼ö¸¦ ÀÇ¹ÌÇÏ´Âµ¥ , ´Â OR(|) ¸¦ ÀÇ¹Ì
+				
+			17. ^, $
+				==> ^ - ½ÃÀÛ Ç¥½Ã
+					$ - ³¡À» ¾Ë·ÁÁÖ´Â ¹®ÀÚ
+					"rsd" <== rsdabcd, arsdabcd, abcdrsd
 				
 			
 			¿¹]
@@ -108,7 +115,24 @@ public class Test05 {
 			
 		
  */
+	Scanner sc ;
+	String name;
 	public Test05() {
+		sc = new Scanner(System.in);
+		while(true){
+			System.out.println("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä!");
+			name = sc.nextLine();
+			if(getTest(name)) {
+				System.out.println("Name : " + name);
+				System.out.println(toString());
+				System.out.println(this);
+				break;
+			}
+		}
+	}
+	// [a-zA-Z0-9]	==> \\w - ÇÑ±ÛÁ¦¿Ü
+	// [0-9]		==> \\d
+	public void getTest01() {
 		String phone = "010-7777-7777";
 		/*
 		 *  1. ¸ÕÀú ÆĞÅÏÀ» ¸¸µç´Ù.
@@ -174,7 +198,21 @@ public class Test05 {
 			
 		}
 	}
-
+	
+	// ÀÌ¸§ Á¤±Ô½Ä °Ë»ç ÇÔ¼ö
+	public boolean getTest(String str) {
+		return Pattern.compile("^[°¡-ÆR]{2,10}$").matcher(str).matches();
+/*		
+		Pattern pat = Pattern.compile("^[°¡-ÆR]{2,10}$");
+		Matcher mat = pat.matcher(str);
+		return mat.matches();
+*/
+	}
+	
+	public String toString() {
+		return "Name : " + name ;
+	}
+	
 	public static void main(String[] args) {
 		new Test05();
 	}
