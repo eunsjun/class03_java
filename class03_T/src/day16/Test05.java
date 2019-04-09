@@ -112,7 +112,9 @@ public class Test05 {
 			입력받을 때 정규식 검사를 해서
 			바른경우만 입력하세요...
 			
-			
+	숙제]
+		Matcher 클래스 소속함수
+		find(), start(), end(), ...
 		
  */
 	Scanner sc ;
