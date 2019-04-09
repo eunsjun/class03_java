@@ -1,7 +1,7 @@
 package day16;
 
 import java.util.regex.*;
-
+import java.util.*;
 public class Test05 {
 /*
 	정규식 검사
@@ -87,15 +87,23 @@ public class Test05 {
 			예]
 				0[0-9]{2}-[0-9]{3,4}-[0-9]{4}	==> 전화번호
 				0[0-9][0-9]-[0-9]{3,4}-[0-9]{4}
-				==> ???
+				==> ???	
+					0\d{2}-\d{3,4}-\d{4}
 		
 			
-		문제]
-		아이디를 입력해서 입력받은 아이디가 지정형식에 맞는지 검사하는 프로그램을 작성하세요.
-		단,
+		문제 1]
+			아이디를 입력해서 입력받은 아이디가 지정형식에 맞는지 검사하는 프로그램을 작성하세요.
+			단,
 			아이디의 첫글자는 반드시 영문자로 시작
 			두번째글자부터는 영문자 숫자 를 사용할 수있고
 			글자수는 8자 이상이 되어야 한다.
+			
+		
+		문제 2]
+			문제1] 해결된 사람은
+			Score 클래스의 한사람의 데이터를 입력하는데
+			입력받을 때 정규식 검사를 해서
+			바른경우만 입력하세요...
 			
 			
 		
@@ -121,6 +129,7 @@ public class Test05 {
 		 				 Pattern 클래스의 경우 compile() 함수가 그런 기능을 가지고 있다.
 		 */
 		Pattern soo = Pattern.compile("0[0-9]{2}-[0-9]{3,4}-[0-9]{4}");
+		Pattern soo1 = Pattern.compile("0\\d{2}-\\d{3,4}-\\d{4}");
 		
 		/*
 				2. 해당 패턴에 맞는지 검사한다.
@@ -128,7 +137,7 @@ public class Test05 {
 					이 함수는 검사 결과를 Matcher 객체로 반환 해준다.
 		 */
 		
-		Matcher mat = soo.matcher(phone);
+		Matcher mat = soo1.matcher(phone);
 		/*
 		 		3. Matcher 객체에 담겨있는 검사결과 정보를 뽑아낸다.
 		 			그 역할을 하는 함수가
@@ -144,6 +153,25 @@ public class Test05 {
 			System.out.println("*** 올바른 전화번호 입니다. ***");
 		} else {
 			System.out.println("### 전화번호 형식이 잘못되었습니다. ###");
+		}
+		
+		Pattern p1 = Pattern.compile("\\w{0,10}");
+		Scanner sc = new Scanner(System.in);
+		Matcher m1 ;
+		while(true) {
+			System.out.println("이름을 입력하세요! : ");
+			String name = sc.nextLine();
+			m1 = p1.matcher(name);
+			if(name.equals("quit")) break;
+			
+			if(m1.matches()) {
+				System.out.println("OK!!!");
+				break;
+			} else {
+				System.out.println("NO !!!!!");
+				
+			}
+			
 		}
 	}
 
