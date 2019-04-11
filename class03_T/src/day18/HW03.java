@@ -1,15 +1,15 @@
 package day18;
 
 import java.util.*;
-public class Test04 {
+
+public class HW03 {
 /*
-	문제]
-		ArrayList 에 
-			랜덤하게 반지름(정수)을 5개 입력해서
-			원의 둘레와 넓이(실수)를 같이 저장하세요.
-			그리고 데이터를 꺼내서 출력하세요.
+	Test04 에서 만든 ArrayList 를 
+	오름차순 정렬
+	내림차순 정렬
+	해서 각각 출력하세요.
  */
-	public Test04() {
+	public HW03() {
 		ArrayList list = new ArrayList();
 		
 		for(int i = 0 ; i < 5 ; i++ ) {
@@ -47,6 +47,8 @@ public class Test04 {
 		ttl.add("둘   레 : ");
 		ttl.add("넓   이 : ");
 		
+		Collections.sort(list, new HW03Sort());
+		
 		System.out.println("**********************************");
 		System.out.println("************ Iterator ************");
 		System.out.println("**********************************");
@@ -67,10 +69,55 @@ public class Test04 {
 			}
 			System.out.println("###############");
 		}
+		System.out.println();
+		Collections.sort(list, new HW03Sort01());
+		
+		System.out.println("**********************************");
+		System.out.println("************ Iterator2 ***********");
+		System.out.println("**********************************");
+		Iterator it1 = list.iterator();
+		while(it1.hasNext()) {
+			ArrayList tmp = (ArrayList) it1.next();
+			
+			Iterator itor = tmp.iterator();
+			int i = 0 ;
+			while(itor.hasNext()) {
+				Object o = itor.next();
+				if(o instanceof Integer) {
+					System.out.println((String)ttl.get(i) + (int) o);
+				} else if(o instanceof Float) {
+					System.out.println((String)ttl.get(i) + (float)o);
+				}
+				i++;
+			}
+			System.out.println("###############");
+		}
 	}
 
 	public static void main(String[] args) {
-		new Test04();
+		new HW03();
 	}
 
+}
+
+class HW03Sort implements Comparator {
+	
+	@Override
+	public int compare(Object o1, Object o2){	
+		ArrayList l1 = (ArrayList) o1;
+		ArrayList l2 = (ArrayList) o2;
+		return ((int)l1.get(0) - (int)l2.get(0));
+	}
+	
+}
+
+class HW03Sort01 implements Comparator {
+	
+	@Override
+	public int compare(Object o1, Object o2){	
+		ArrayList l1 = (ArrayList) o1;
+		ArrayList l2 = (ArrayList) o2;
+		return -((int)l1.get(0) - (int)l2.get(0));
+	}
+	
 }
