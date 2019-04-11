@@ -40,4 +40,5 @@ public class HW01 {
 		new HW01();
 		new HW01("10", "20");
 	}
+	
 }
