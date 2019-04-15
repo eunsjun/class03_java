@@ -75,15 +75,13 @@ public class Test04 {
 		// 2. 꺼낸 맵에서 친구 정보를 조회한다.
 		String tel = (String) tmpMap.get(name);
 		
-		System.out.println("죄회 데이터 ]\n\t이름 : " + name + "\n\tTel : " + tel);
+		System.out.println("*** 조회 데이터 ***\n\t이름 : " + name + "\n\tTel : " + tel);
 	}
 	
 	// 모든 사람 꺼내는 함수 ==> 숙제
 	public void getAll() {
 		
 	}
-	
-	
 	
 	public static void main(String[] args) {
 		new Test04();
