@@ -38,10 +38,16 @@ public class MSQL {
 		case INSERT_MEMB:
 			buff.append("INSERT INTO ");
 			buff.append("	member( ");
-			buff.append("	m_no, m_name, m_id, m_pw, m_mail ");
+			buff.append("	( ");
+			buff.append("		SELECT ");
+			buff.append("			NVL(MAX(M_NO) + 1, 1001) ");
+			buff.append("		SELECT ");
+			buff.append("			member ");
+			buff.append("	), ");
+			buff.append("	m_name, m_id, m_pw, m_mail ");
 			buff.append(") ");
 			buff.append("VALUES( ");
-			buff.append("	?, ?, ?, ?, ? ");
+			buff.append("	?, ?, ?, ? ");
 			buff.append(")");
 			break;
 		}
