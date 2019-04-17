@@ -43,8 +43,7 @@ public class C3JDBC {
 	public PreparedStatement getPSTMT(String sql) {
 		PreparedStatement pstmt = null;
 		try {
-			pstmt = con.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, 
-														ResultSet.CONCUR_READ_ONLY);
+			pstmt = con.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
 		}catch(Exception e) {
 			System.out.println("### PreparedStatement Get ERROR ###");
 			e.printStackTrace();

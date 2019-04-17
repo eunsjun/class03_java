@@ -66,12 +66,65 @@ public class MDAO {
 			e.printStackTrace();
 		} finally {
 			db.close(rs);
-			db.close(pstmt);
-			db.close(con);
 		}
 		// 데이터 보내고
 		
 		return cnt;
+	}
+	
+	// 이름 검색해서 카운트 반환해주는 함수
+	public ArrayList<String> getNameList() {
+		ArrayList<String> list = new ArrayList<String>();
+		// 할일
+		// 질의명령 가져오고
+		String sql = MSQL.getSQL(MSQL.SEL_NAME_ALL);
+		// PreparedStatement 만들고
+		stmt = db.getSTMT();
+		// 질의 명령보내고 반환값 받고
+		try {
+			rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				String sname = (String) rs.getString("name");
+				list.add(sname);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+		}
+		// 데이터 내보내고
+		
+		
+		return list;
+	}
+	
+	// 회원 정보 입력하는 함수
+	public void insertMember(MemberVO mvo) {
+		// 회원 정보는 갯수가 무진장 많으므로 VO 클래스에 담아서 받자.
+		// 할일
+		// 질의명령 가져오고
+		String sql = MSQL.getSQL(MSQL.INSERT_MEMB);
+		System.out.println(mvo.getId());
+		System.out.println(mvo.getName());
+		System.out.println(mvo.getPw());
+		System.out.println(mvo.getMail());
+		// PreparedStatement 가져오고
+		pstmt = db.getPSTMT(sql);
+		try {
+			// 질의명령 완성하고
+			pstmt.setString(1, mvo.getName());
+			pstmt.setString(2, mvo.getId());
+			pstmt.setString(3, mvo.getPw());
+			pstmt.setString(4, mvo.getMail());
+			// 질의 명령 보내고
+			pstmt.execute();
+			System.out.println(mvo.getId() + " 회원 등록 완료!");
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			// 다쓴것들 닫아주고
+			db.close(pstmt);
+		}
 	}
 
 }

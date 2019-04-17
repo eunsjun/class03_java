@@ -4,6 +4,7 @@ package com.increpas.c3.controller;
 import java.util.*;
 import com.increpas.c3.DAO.*;
 import com.increpas.c3.VO.*;
+import etc.*;
 public class MC01 {
 	MDAO dao;
 	Scanner sc;
@@ -11,8 +12,12 @@ public class MC01 {
 		dao = new MDAO();
 		//getCount();
 		
+		/*
 		// 회원 입력
+		insertMember();
+		*/
 		
+		insertAll();
 	}
 	
 	// 회원입력하는 함수
@@ -27,6 +32,22 @@ public class MC01 {
 		mvo.setMail("jhp@increpas.com");
 		
 		// 먼저 아이디 사용가능 여부를 알아내야 겠다.
+		sc = new Scanner(System.in);
+		while(true) {
+			int cnt = dao.getIdCnt(mvo.getId());
+			if(cnt != 0) {
+				System.out.println("이미 사용하는 아이디 입니다!");
+				System.out.println("사용할 아이디를 입력하세요!");
+				String sid = sc.nextLine();
+				mvo.setId(sid);
+			} else {
+				break;
+			}
+		}
+		sc.close();
+		
+		dao.insertMember(mvo);
+		
 	}
 	
 	public void getCount() {
@@ -48,6 +69,41 @@ public class MC01 {
 		System.out.println(sid+" 회원은 " + msg);
 	}
 
+	// 모든 회원 입력하는 함수
+	/*
+		문제점]
+			이미 가입이 된 학생이 있다.
+			==> 해결 방법 : 이름검색해서 있음 건너뛰면 된다.
+	 */
+	public void insertAll() {
+		ArrayList<String> nameList = new Class03().getName();
+		ArrayList<String> idList = new Class03().getId();
+		ArrayList<String> mailList = new Class03().getMail();
+		ArrayList<String> dbList = dao.getNameList();
+		
+		loop:
+		for(int i = 0 ; i < nameList.size() ; i++ ) {
+			
+			MemberVO mvo = new MemberVO();
+			
+			for(int j = 0 ; j < dbList.size(); j++ ) {
+				if((nameList.get(i)).equals(dbList.get(j))){
+					continue loop;
+				}
+			}
+			
+			String name = nameList.get(i);
+			String id = idList.get(i);
+			String mail = mailList.get(i);
+			mvo.setName(name);
+			mvo.setId(id);
+			mvo.setMail(mail);
+			mvo.setPw("12345");
+			dao.insertMember(mvo);
+		}
+	}
+	
+	
 	public static void main(String[] args) {
 		new MC01();
 	}
