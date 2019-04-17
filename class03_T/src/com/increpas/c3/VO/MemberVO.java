@@ -1,11 +1,13 @@
 package com.increpas.c3.VO;
 
 import java.util.*;
+import java.sql.Time;
 import java.text.*;
 public class MemberVO {
 	private int mNo;
 	private String name, pw, id, mail, isShow, sDate;
 	private Date join;
+	private Time sTime;
 	public int getmNo() {
 		return mNo;
 	}

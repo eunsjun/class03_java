@@ -5,6 +5,8 @@ package com.increpas.c3.DAO;
  */
 import java.sql.*;
 import java.util.*;
+import java.util.Date;
+
 import com.increpas.c3.DB.*;
 import com.increpas.c3.VO.*;
 import com.increpas.c3.SQL.*;
@@ -126,5 +128,92 @@ public class MDAO {
 			db.close(pstmt);
 		}
 	}
-
+	
+	// 회원 전환번호 입력하는 함수
+	public void setTel(ArrayList<String> id, ArrayList<String> tel) {
+		// sql
+		int cnt = 0;
+		String sql = MSQL.getSQL(MSQL.UPDATE_TEL);
+		pstmt = db.getPSTMT(sql);
+		for(int i = 0 ; i < id.size(); i++ ) {
+			try {
+				pstmt.setString(1, tel.get(i));
+				pstmt.setString(2, id.get(i));
+				
+				// 질의명령 보내기
+				cnt = pstmt.executeUpdate();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+			
+			if(cnt == 0) {
+				System.out.println(id.get(i)+ " 회원 전화번호 입력 실패");
+			}
+		}
+		
+		System.out.println("### 모든 회원 전화번호 입력 성공 ###");
+	}
+	
+	
+	// 이름을 입력하면 가입일을 시간까지 출력해주는 함수
+	public void getJoin(String name) {
+		// 질의 명령
+		String sql = "SELECT m_id id, join_date join from member where m_name = ?";
+		// PreparedStatement
+		pstmt = db.getPSTMT(sql);
+		
+		try {
+			// 질의명령 완성
+			pstmt.setString(1, name);
+			
+			// 질의명령 보내고 데이터 받고
+			rs = pstmt.executeQuery();
+			
+			// 데이터 꺼내고
+			rs.next();
+			String id = rs.getString("id");
+//			Date date = rs.getDate("join");
+			Time tt = rs.getTime("join");
+			
+			// 데이터 출력하고
+			System.out.println(id + " 회원님 가입시간은 " /* + date + " " */+ tt + " 입니다.");
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	// 회원 정보 전체수정 함수
+	public void setMembData(HashMap<String, ArrayList<String>> map) {
+		ArrayList<String> name = map.get("name");
+		ArrayList<String> id = map.get("id");
+		ArrayList<String> mail = map.get("mail");
+		ArrayList<String> tel = map.get("tel");
+		
+		// sql
+		String sql = MSQL.getSQL(MSQL.UPDATE_MEMB);
+		// PreparedStatement 준비
+		pstmt = db.getPSTMT(sql);
+		
+		int cnt = 0 ;
+		
+		try {
+			for(int i = 0 ; i < name.size(); i++ ) {
+				//  질의명령 완성
+				pstmt.setString(1, id.get(i));
+				pstmt.setString(2, mail.get(i));
+				pstmt.setString(3, tel.get(i));
+				pstmt.setString(4, name.get(i));
+				
+				// 질의명령 보내고
+				cnt = pstmt.executeUpdate();
+				
+				if(cnt == 0) {
+					System.out.println(name.get(i) + " 회원 업데이트 에러");
+				}
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

@@ -8,6 +8,7 @@ public class MSQL {
 	public static final int SEL_NAME_ALL = 1005;
 	
 	public static final int UPDATE_TEL = 2001;
+	public static final int UPDATE_MEMB = 2002;
 	
 	public static final int INSERT_MEMB = 3001;
 	
@@ -60,6 +61,16 @@ public class MSQL {
 			buff.append("	m_tel = ? ");
 			buff.append("WHERE ");
 			buff.append("	m_id = ? ");
+			break;
+		case UPDATE_MEMB:
+			buff.append("UPDATE ");
+			buff.append("	member ");
+			buff.append("SET ");
+			buff.append("	m_id = ?, ");
+			buff.append("	m_mail = ?, ");
+			buff.append("	m_tel = ? ");
+			buff.append("WHERE ");
+			buff.append("	m_name = ? ");
 			break;
 		case INSERT_MEMB:
 			buff.append("INSERT INTO ");

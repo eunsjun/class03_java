@@ -79,6 +79,8 @@ public class MC01 {
 		ArrayList<String> nameList = new Class03().getName();
 		ArrayList<String> idList = new Class03().getId();
 		ArrayList<String> mailList = new Class03().getMail();
+		
+		// 입력된 회원 이름 리스트 얻기
 		ArrayList<String> dbList = dao.getNameList();
 		
 		loop:

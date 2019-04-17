@@ -9,6 +9,7 @@ public class Class03 {
 	private ArrayList sub;
 	private ArrayList<String> id;
 	private ArrayList<String> mail;
+	private ArrayList<String> tel;
 	
 	public ArrayList getSub() {
 		return sub;
@@ -22,6 +23,7 @@ public class Class03 {
 		name = new ArrayList();
 		setIdList();
 		setMailList();
+		setTelList();
 		sub = new ArrayList();
 		for(String irum : tname) {
 			name.add(irum);
@@ -80,6 +82,25 @@ public class Class03 {
 		mail.add("banjang@increpas.com");
 		mail.add("mj@increpas.com");
 	}
+	
+	public void setTelList() {
+		tel = new ArrayList<String>();
+		tel.add("010-7170-3992");
+		tel.add("010-2832-8803");
+		tel.add("010-8600-2499");
+		tel.add("010-7161-0208");
+		tel.add("010-4190-0079");
+		tel.add("010-3072-2421");
+		tel.add("010-3661-3771");
+		tel.add("010-3762-3828");
+		tel.add("010-2249-5576");
+		tel.add("010-4613-9442");
+		tel.add("010-6211-3248");
+		tel.add("010-4428-5869");
+		tel.add("010-7187-0947");
+		tel.add("010-4159-9500");
+		tel.add("010-8705-2362");
+	}
 
 	public ArrayList<String> getId() {
 		return id;
@@ -87,6 +108,10 @@ public class Class03 {
 
 	public ArrayList<String> getMail() {
 		return mail;
+	}
+
+	public ArrayList<String> getTel() {
+		return tel;
 	}
 	
 	
