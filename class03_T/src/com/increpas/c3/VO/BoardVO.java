@@ -1,11 +1,13 @@
 package com.increpas.c3.VO;
 
 import java.util.*;
+import java.sql.Time;
 import java.text.*;
 public class BoardVO {
 	private int bNo, mNo;
 	private String body, isShow, sDate;
 	private Date bDate;
+	private Time bTime;
 	public int getbNo() {
 		return bNo;
 	}
@@ -46,5 +48,10 @@ public class BoardVO {
 		SimpleDateFormat pattern = new SimpleDateFormat("yyyy³â MM¿ù ddÀÏ HH:mm:ss");
 		this.sDate = pattern.format(bDate);
 	}
-	
+	public Time getbTime() {
+		return bTime;
+	}
+	public void setbTime(Time bTime) {
+		this.bTime = bTime;
+	}
 }

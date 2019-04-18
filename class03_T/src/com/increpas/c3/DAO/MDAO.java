@@ -43,7 +43,6 @@ public class MDAO {
 		} finally {
 			db.close(rs);
 			db.close(pstmt);
-			db.close(con);
 		}
 		
 		return cnt;
@@ -68,6 +67,7 @@ public class MDAO {
 			e.printStackTrace();
 		} finally {
 			db.close(rs);
+			db.close(pstmt);
 		}
 		// 데이터 보내고
 		
@@ -93,6 +93,7 @@ public class MDAO {
 			e.printStackTrace();
 		} finally {
 			db.close(rs);
+			db.close(stmt);
 		}
 		// 데이터 내보내고
 		
@@ -179,6 +180,8 @@ public class MDAO {
 			System.out.println(id + " 회원님 가입시간은 " /* + date + " " */+ tt + " 입니다.");
 		} catch(Exception e) {
 			e.printStackTrace();
+		} finally {
+			db.close(pstmt);
 		}
 	}
 	
@@ -214,6 +217,8 @@ public class MDAO {
 			}
 		} catch(Exception e) {
 			e.printStackTrace();
+		} finally {
+			db.close(pstmt);
 		}
 	}
 }
