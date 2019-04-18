@@ -5,7 +5,7 @@ import java.sql.Time;
 import java.text.*;
 public class BoardVO {
 	private int bNo, mNo;
-	private String body, isShow, sDate;
+	private String id, body, isShow, sDate;
 	private Date bDate;
 	private Time bTime;
 	public int getbNo() {
@@ -19,6 +19,12 @@ public class BoardVO {
 	}
 	public void setmNo(int mNo) {
 		this.mNo = mNo;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getBody() {
 		return body;
