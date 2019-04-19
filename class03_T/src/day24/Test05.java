@@ -49,7 +49,7 @@ public class Test05 {
 			}
 			
 		}catch(Exception e) {
-			
+			e.printStackTrace();
 		} finally {
 			try {
 				fin.close();
